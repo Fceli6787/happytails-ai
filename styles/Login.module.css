@@ -1,0 +1,416 @@
+/* Login.module.css - Optimizado para móviles, tablets y desktop */
+
+/* ===== BASE STYLES (Mobile First) ===== */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e9d5ff 0%, #8b5cf6 100%);
+  padding: max(0.5rem, env(safe-area-inset-top)) 
+           max(0.5rem, env(safe-area-inset-right)) 
+           max(0.5rem, env(safe-area-inset-bottom)) 
+           max(0.5rem, env(safe-area-inset-left));
+}
+
+.loginBox {
+  width: 100%;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(138, 43, 226, 0.15);
+  text-align: center;
+  border: 1px solid rgba(240, 230, 250, 0.8);
+  margin: 0 0.5rem;
+}
+
+.logo {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 3px 6px rgba(138, 43, 226, 0.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.title {
+  font-size: 1.75rem;
+  color: #4a1d6f;
+  margin-bottom: 0.375rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.subtitle {
+  color: #6b5b7a;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.input {
+  width: 100%;
+  padding: 0.875rem;
+  margin-bottom: 1rem;
+  border: 2px solid #e0d4f0;
+  border-radius: 12px;
+  font-size: 16px; /* Mínimo 16px previene zoom automático en iOS */
+  transition: all 0.3s ease;
+  color: #1f1f1f;
+  font-weight: 500;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  min-height: 44px; /* Tamaño mínimo recomendado para touch */
+  touch-action: manipulation; /* Mejora la respuesta táctil */
+  -webkit-appearance: none; /* Remueve estilos nativos iOS */
+  appearance: none;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+  font-weight: 400;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+  background-color: #ffffff;
+}
+
+/* Mejora específica para autofill en navegadores */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #1f1f1f;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.button {
+  width: 100%;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-height: 44px; /* Tamaño mínimo para touch */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent; /* Remueve highlight azul en Android */
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.45);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+}
+
+.error {
+  color: #dc2626;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  background-color: #fef2f2;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 2px solid #fecaca;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word;
+  text-align: left;
+}
+
+/* ===== SMALL MOBILE (360px+) ===== */
+@media (min-width: 360px) {
+  .loginBox {
+    padding: 1.75rem 1.5rem;
+    margin: 0 0.75rem;
+  }
+  
+  .title {
+    font-size: 1.85rem;
+  }
+  
+  .logo {
+    font-size: 2.25rem;
+  }
+}
+
+/* ===== MOBILE LARGE (480px+) ===== */
+@media (min-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .loginBox {
+    max-width: 420px;
+    padding: 2.5rem;
+    border-radius: 18px;
+    margin: 0 1rem;
+  }
+  
+  .logo {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .input {
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .button {
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
+  
+  .error {
+    font-size: 0.95rem;
+    padding: 0.875rem;
+  }
+}
+
+/* ===== TABLET (768px+) ===== */
+@media (min-width: 768px) {
+  .loginBox {
+    max-width: 420px;
+    padding: 3rem;
+    border-radius: 20px;
+  }
+  
+  .logo {
+    font-size: 3rem;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .button {
+    font-size: 1.1rem;
+  }
+  
+  .error {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* ===== LANDSCAPE MODE (Mobile) ===== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .container {
+    min-height: auto;
+    padding: 1.5rem 1rem;
+  }
+  
+  .loginBox {
+    padding: 1.5rem 2rem;
+    max-width: 500px;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .subtitle {
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .input {
+    margin-bottom: 0.875rem;
+    padding: 0.75rem;
+  }
+  
+  .button {
+    padding: 0.75rem;
+  }
+}
+
+/* ===== HIGH RESOLUTION DISPLAYS ===== */
+@media (min-resolution: 2dppx) and (max-width: 480px) {
+  .input {
+    font-size: 16px; /* Crítico: previene zoom en iOS */
+  }
+}
+
+/* ===== DARK MODE SUPPORT - MEJORADO ===== */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: linear-gradient(135deg, #1f1b2e 0%, #4c1d95 100%);
+  }
+  
+  .loginBox {
+    background: rgba(30, 30, 40, 0.98);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .title {
+    color: #f3e8ff;
+  }
+  
+  .subtitle {
+    color: #d8b4fe;
+  }
+  
+  /* 🔥 MEJORA CLAVE: Input con alto contraste en modo oscuro */
+  .input {
+    background-color: #2d2a3e;
+    border-color: #4c4560;
+    color: #f3f4f6;
+    font-weight: 500;
+  }
+  
+  .input::placeholder {
+    color: #9ca3af;
+    opacity: 0.8;
+  }
+  
+  .input:focus {
+    background-color: #353349;
+    border-color: #a78bfa;
+    color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.15);
+  }
+  
+  /* Autofill en modo oscuro */
+  .input:-webkit-autofill,
+  .input:-webkit-autofill:hover,
+  .input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f3f4f6;
+    -webkit-box-shadow: 0 0 0px 1000px #2d2a3e inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  /* Error mejorado en modo oscuro */
+  .error {
+    background-color: #3f1f1f;
+    border-color: #7f3030;
+    color: #fca5a5;
+  }
+  
+  /* Botón en modo oscuro */
+  .button {
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+    box-shadow: 0 4px 12px rgba(167, 139, 250, 0.4);
+  }
+  
+  .button:hover {
+    box-shadow: 0 8px 20px rgba(167, 139, 250, 0.5);
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    animation: none;
+  }
+  
+  .button,
+  .input {
+    transition: none;
+  }
+}
+
+/* ===== FOCUS VISIBLE (Accesibilidad para teclado) ===== */
+.button:focus-visible {
+  outline: 3px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+.input:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Añadir en styles/Login.module.css */
+
+.successMessage {
+  color: #28a745; /* Un color verde para éxito */
+  background-color: #e9f7ec;
+  border: 1px solid #b8e9c1;
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* ... (tus estilos existentes) ... */
+
+/* Corrección visual para el link de registro */
+.footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.footer p {
+  color: #ccc; /* Hacemos el texto "No tienes cuenta?" más visible */
+  font-size: 0.9rem;
+}
+.footer a {
+  color: #fff; /* El link en blanco */
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ... (tus estilos existentes) ... */
+
+/* Corrección visual para el link de registro */
+.footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.footer p {
+  color: #ccc; /* Hacemos el texto "No tienes cuenta?" más visible */
+  font-size: 0.9rem;
+}
+.footer a {
+  color: #fff; /* El link en blanco */
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}

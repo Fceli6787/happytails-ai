@@ -1,0 +1,359 @@
+/* PetCard.module.css */
+
+.petCard {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  gap: 0;
+  max-width: 100%;
+  height: 100%;
+}
+
+.petCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: #8b5cf6;
+}
+
+/* 🖼️ Contenedor de imagen */
+.petImageContainer {
+  flex-shrink: 0;
+  width: 240px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.petImage {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.noImage {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  color: #9ca3af;
+  gap: 0.75rem;
+}
+
+.noImageIcon {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.noImageText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 📋 Información principal */
+.petInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1.25rem;
+  background: white;
+}
+
+/* 🏷️ Header con nombre y especie */
+.petHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.petNameSection {
+  flex: 1;
+}
+
+.petName {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #7c3aed;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.petSpecies {
+  font-size: 1.1rem;
+  color: #6b7280;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.petSpecies::before {
+  content: "🐾";
+  font-size: 1rem;
+}
+
+/* 📊 Grid de detalles */
+.petDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9d5ff;
+}
+
+.petDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailLabel {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.detailValue {
+  font-size: 1.15rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+/* 📝 Descripción */
+.petDescription {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  background: #fffbeb;
+  border-left: 4px solid #fbbf24;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.petDescription::before {
+  content: "💭 ";
+  margin-right: 0.25rem;
+}
+
+/* 💉 Estado de vacunación */
+.vaccineStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.625rem 1.25rem;
+  border-radius: 10px;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vaccineOk {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.vaccineOk::before {
+  content: "✓";
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.vaccinePending {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.vaccinePending::before {
+  content: "⏱";
+  font-size: 1rem;
+}
+
+/* 🎯 Sección de acciones */
+.petActions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+  border-left: 1px solid #e5e7eb;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 110px;
+}
+
+.iconButton {
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 0.875rem;
+  font-size: 1.25rem;
+  color: white;
+  transition: all 0.25s ease;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.iconButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.iconButton:hover::after {
+  opacity: 1;
+}
+
+.iconButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.iconButton:active {
+  transform: scale(0.95);
+}
+
+.iconButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.iconButton:disabled:hover {
+  transform: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.editButton {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.editButton:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.deleteButton:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* 🔧 Modo edición */
+.cardEdit {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid #8b5cf6;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.2);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .petCard {
+    flex-direction: column;
+  }
+
+  .petImageContainer {
+    width: 100%;
+    height: 260px;
+  }
+
+  .petImage,
+  .noImage {
+    min-height: 260px;
+  }
+
+  .petInfo {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .petName {
+    font-size: 1.75rem;
+  }
+
+  .petDetailsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .petActions {
+    flex-direction: row;
+    padding: 1.25rem;
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+    min-width: auto;
+    justify-content: center;
+  }
+
+  .iconButton {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .petName {
+    font-size: 1.5rem;
+  }
+
+  .petSpecies {
+    font-size: 1rem;
+  }
+
+  .petDetailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .petInfo {
+    padding: 1.25rem;
+  }
+
+  .detailValue {
+    font-size: 1rem;
+  }
+}

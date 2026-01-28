@@ -1,0 +1,273 @@
+/* Archivo: app/admin/administradores/AdminList.module.css */
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+
+.tableContainer {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* ========================================
+   BOTÓN CREAR
+   ======================================== */
+
+.createButton {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.createButton:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+}
+
+/* ========================================
+   TABLA
+   ======================================== */
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.adminTable th,
+.adminTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.adminTable th {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  font-weight: 700;
+  color: white;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.adminTable td {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.adminTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.adminTable tbody tr:hover {
+  background-color: #faf5ff;
+}
+
+.adminTable tbody tr {
+  transition: all 0.2s ease;
+}
+
+/* ========================================
+   FILA DE SUPERADMIN DESTACADA
+   ======================================== */
+
+.superadminRow {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+}
+
+.superadminRow:hover {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+}
+
+/* ========================================
+   BADGES DE ROL
+   ======================================== */
+
+.rol {
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.rol.admin {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.rol.superadmin {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+}
+
+/* ========================================
+   ACCIONES
+   ======================================== */
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* ========================================
+   PROTECCIÓN DE SUPERADMIN
+   ======================================== */
+
+.protected {
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ========================================
+   BOTONES DE ACCIÓN
+   ======================================== */
+
+.editButton, 
+.deleteButton {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.editButton {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.editButton:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.deleteButton:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.deleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.deleteButton:disabled:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* ========================================
+   MENSAJES DE ERROR
+   ======================================== */
+
+.error {
+  color: #dc2626;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  border: 2px solid #fecaca;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .tableContainer {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .adminTable {
+    font-size: 0.85rem;
+  }
+
+  .adminTable th,
+  .adminTable td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .editButton,
+  .deleteButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .rol {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+}

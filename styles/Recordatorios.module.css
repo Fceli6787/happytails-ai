@@ -1,0 +1,656 @@
+/* =============================================
+   RECORDATORIOS.MODULE.CSS - CARDS MODERNAS
+   ============================================= */
+
+/* 📋 Header Principal */
+.header {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.header h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* 📦 Contenedor principal */
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+/* 🎴 Tarjetas de sección */
+.sectionCard {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.3s ease;
+}
+
+/* 🏷️ Encabezados de sección */
+.sectionHeader {
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* 📝 Formularios - Mobile First */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.01em;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-family: inherit;
+  color: #1f2937;
+  background: white;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  min-height: 44px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  background: #faf5ff;
+}
+
+/* Select personalizado */
+.formGroup select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='%238b5cf6'%3E%3Cpath d='M4 6l4 4 4-4H4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+.formGroup input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(49%) sepia(78%) saturate(2476%) hue-rotate(236deg) brightness(95%) contrast(92%);
+}
+
+/* Acciones del formulario */
+.formActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* 🔘 Botones */
+.addButton {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.938rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+  letter-spacing: 0.02em;
+  min-height: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.addButton:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.cancelButton {
+  background: #f3f4f6;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.938rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cancelButton:active {
+  background: #e5e7eb;
+  transform: scale(0.98);
+}
+
+.editButton {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  border: none;
+  padding: 0.625rem 1rem;
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.editButton:active {
+  transform: scale(0.95);
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  padding: 0.625rem 1rem;
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.deleteButton:active {
+  transform: scale(0.95);
+}
+
+/* 🎯 Estados con badges mejorados */
+.estadoPendiente,
+.estadoCompletado,
+.estadoCancelado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.estadoPendiente {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #d97706;
+  border: 1px solid #fbbf24;
+}
+
+.estadoCompletado {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #059669;
+  border: 1px solid #34d399;
+}
+
+.estadoCancelado {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #dc2626;
+  border: 1px solid #f87171;
+}
+
+/* Iconos de estado con pseudo-elementos */
+.estadoPendiente::before {
+  content: "⏳";
+  font-size: 0.875rem;
+}
+
+.estadoCompletado::before {
+  content: "✓";
+  font-size: 0.875rem;
+}
+
+.estadoCancelado::before {
+  content: "✕";
+  font-size: 0.875rem;
+}
+
+/* 💬 Mensajes */
+.successMessage,
+.errorMessage,
+.loadingMessage,
+.emptyMessage {
+  margin-top: 1rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.successMessage {
+  background: #d1fae5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.errorMessage {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.loadingMessage {
+  background: #f3f4f6;
+  color: #6b7280;
+  text-align: center;
+  padding: 2rem;
+}
+
+.emptyMessage {
+  background: #f9fafb;
+  color: #9ca3af;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border: 2px dashed #e5e7eb;
+  border-radius: 0.75rem;
+}
+
+/* ================================================
+   VISTA CARDS MODERNAS (Mobile)
+   ================================================ */
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Card principal */
+.recordCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.recordCard:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header de la card */
+.recordCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-bottom: 2px solid #ddd6fe;
+}
+
+.recordCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.petIcon {
+  font-size: 1.25rem;
+  filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3));
+}
+
+.recordCardTitle h4 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #5b21b6;
+  letter-spacing: -0.01em;
+}
+
+/* Body de la card */
+.recordCardBody {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.infoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border-radius: 0.625rem;
+  border: 1px solid #e5e7eb;
+}
+
+.infoLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 700;
+  color: #6b7280;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.labelIcon {
+  font-size: 0.875rem;
+}
+
+.infoValue {
+  color: #1f2937;
+  font-size: 0.938rem;
+  font-weight: 500;
+  word-break: break-word;
+  padding-left: 1.25rem;
+}
+
+/* Footer de la card con botones */
+.recordCardFooter {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #fafafa;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ================================================
+   VISTA TABLA (Solo Desktop)
+   ================================================ */
+
+.tableWrapper {
+  display: none;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.table thead {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+}
+
+.table thead th {
+  color: #5b21b6;
+  padding: 1rem;
+  border-bottom: 2px solid #ddd6fe;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.table tbody tr {
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.table tbody tr:hover {
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody td {
+  padding: 1rem;
+  color: #4b5563;
+  vertical-align: middle;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.table .editButton,
+.table .deleteButton {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  min-height: auto;
+  flex: none;
+}
+
+/* ================================================
+   RESPONSIVE: TABLET & DESKTOP
+   ================================================ */
+
+/* Tablet: 600px+ */
+@media (min-width: 600px) {
+  .header {
+    padding: 2rem 1.5rem;
+  }
+
+  .header h2 {
+    font-size: 1.75rem;
+  }
+
+  .pageContent {
+    padding: 0 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .sectionCard {
+    padding: 1.5rem;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .formActions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .formActions .cancelButton,
+  .formActions .addButton {
+    width: auto;
+    min-width: 150px;
+  }
+
+  .recordCard {
+    padding: 0;
+  }
+
+  .recordCardHeader {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .recordCardBody {
+    padding: 1.5rem;
+  }
+
+  .recordCardFooter {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+/* Desktop: 768px+ - MOSTRAR TABLA, OCULTAR CARDS */
+@media (min-width: 768px) {
+  .header {
+    padding: 2rem 2.5rem;
+  }
+
+  .header h2 {
+    font-size: 2rem;
+  }
+
+  .sectionCard {
+    padding: 2rem;
+  }
+
+  .sectionCard:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  /* OCULTAR CARDS, MOSTRAR TABLA */
+  .cardList {
+    display: none;
+  }
+
+  .tableWrapper {
+    display: block;
+  }
+
+  .addButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+  }
+
+  .cancelButton:hover {
+    background: #e5e7eb;
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+  }
+
+  .editButton:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  }
+
+  .deleteButton:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  }
+}
+
+/* Desktop Large: 1024px+ */
+@media (min-width: 1024px) {
+  .pageContent {
+    gap: 2rem;
+  }
+}
+
+/* ===== ACCESIBILIDAD ===== */
+@media (prefers-reduced-motion: reduce) {
+  .addButton,
+  .cancelButton,
+  .editButton,
+  .deleteButton,
+  .sectionCard,
+  .card {
+    transition: none;
+  }
+}
+
+/* Focus visible */
+.addButton:focus-visible,
+.cancelButton:focus-visible,
+.editButton:focus-visible,
+.deleteButton:focus-visible {
+  outline: 3px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+.formGroup input:focus-visible,
+.formGroup select:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* ... (tus estilos de recordatorios existentes) ... */
+
+/* --- AÑADIDO: Estilo para bloqueo de Admin --- */
+.adminWarning {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #d94026; /* Borde rojo/naranja */
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.adminWarning h2 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-top: 0;
+}
+
+.adminWarning p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}

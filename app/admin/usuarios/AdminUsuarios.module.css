@@ -1,0 +1,539 @@
+/* Archivo: app/admin/usuarios/AdminUsuarios.module.css */
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+
+.tableContainer {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header > div h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.header > div span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* ========================================
+   ESTADÍSTICAS
+   ======================================== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #8b5cf6;
+}
+
+.statCard h3 {
+  font-size: 2.5rem;
+  color: #7c3aed;
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+}
+
+.statCard p {
+  margin: 0;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   TABLA
+   ======================================== */
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.adminTable th,
+.adminTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.adminTable th {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  font-weight: 700;
+  color: white;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.adminTable td {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.adminTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.adminTable tbody tr:hover {
+  background-color: #faf5ff;
+}
+
+.adminTable tbody tr {
+  transition: all 0.2s ease;
+}
+
+/* ========================================
+   INFORMACIÓN DE USUARIO (AVATAR + NOMBRE)
+   ======================================== */
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.userInfo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.userInfo strong {
+  display: block;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.userInfo small {
+  display: block;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+/* ========================================
+   BADGES DE ROLES
+   ======================================== */
+
+.rol {
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.rol.user {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+.rol.admin {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.rol.superadmin {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+}
+
+/* ========================================
+   FILA DE SUPERADMIN
+   ======================================== */
+
+.superadminRow {
+  background: #fef3c7 !important;
+}
+
+.superadminRow:hover {
+  background: #fef3c7 !important;
+}
+
+/* ========================================
+   ACCIONES
+   ======================================== */
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.createButton {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.createButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+}
+
+.inspectButton,
+.editButton,
+.deleteButton {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+  color: white;
+  font-weight: 600;
+  min-width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inspectButton {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.inspectButton:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: scale(1.1);
+}
+
+.editButton {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.editButton:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: scale(1.1);
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.deleteButton:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: scale(1.1);
+}
+
+.protected {
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   CENTRADO
+   ======================================== */
+
+.centered {
+  text-align: center;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+/* ========================================
+   MODAL
+   ======================================== */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modalContent h2 {
+  margin: 0 0 1.5rem 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   FORMULARIO
+   ======================================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancelButton,
+.submitButton {
+  flex: 1;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cancelButton {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.cancelButton:hover {
+  background: #d1d5db;
+  transform: translateY(-2px);
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+}
+
+/* ========================================
+   ESTADOS DE CARGA Y ERROR
+   ======================================== */
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+}
+
+.loading .spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  color: #dc2626;
+  font-weight: 700;
+  background: #fef2f2;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #fecaca;
+  text-align: center;
+}
+
+.error button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.error button:hover {
+  background: #b91c1c;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .tableContainer {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .adminTable {
+    font-size: 0.85rem;
+  }
+
+  .adminTable th,
+  .adminTable td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .userInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .modalContent {
+    padding: 1.5rem;
+    width: 95%;
+  }
+}

@@ -1,0 +1,1153 @@
+/* ========================================
+   ADOPCION CARD - SISTEMA COMPLETO
+   Diseño responsivo para todas las pantallas
+   ======================================== */
+
+/* ========================================
+   TARJETA PRINCIPAL
+   ======================================== */
+
+.petCard {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  gap: 0;
+  max-width: 100%;
+  height: 100%;
+}
+
+.petCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: #8b5cf6;
+}
+
+/* ========================================
+   CONTENEDOR DE IMAGEN
+   ======================================== */
+
+.petImageContainer {
+  flex-shrink: 0;
+  width: 240px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.petImage {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.noImage {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  color: #9ca3af;
+  gap: 0.75rem;
+}
+
+.noImageIcon {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.noImageText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   INFORMACIÓN PRINCIPAL
+   ======================================== */
+
+.petInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1.25rem;
+  background: white;
+}
+
+/* ========================================
+   HEADER CON NOMBRE Y ESPECIE
+   ======================================== */
+
+.petHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.petNameSection {
+  flex: 1;
+}
+
+.petName {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #7c3aed;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.petSpecies {
+  font-size: 1.1rem;
+  color: #6b7280;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.petSpecies::before {
+  content: "🐾";
+  font-size: 1rem;
+}
+
+/* ========================================
+   GRID DE DETALLES
+   ======================================== */
+
+.petDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9d5ff;
+}
+
+.petDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailLabel {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.detailValue {
+  font-size: 1.15rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+/* ========================================
+   DESCRIPCIÓN
+   ======================================== */
+
+.petDescription {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  border-left: 4px solid #4CAF50;
+}
+
+.descriptionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.descriptionText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  white-space: pre-line;
+}
+
+/* ========================================
+   ESTADO DE VACUNACIÓN
+   ======================================== */
+
+.vaccineStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.625rem 1.25rem;
+  border-radius: 10px;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vaccineOk {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.vaccineOk::before {
+  content: "✓";
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.vaccinePending {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.vaccinePending::before {
+  content: "⏱";
+  font-size: 1rem;
+}
+
+/* ========================================
+   BADGES DE ESTADO
+   ======================================== */
+
+.statusBadge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.statusAvailable {
+  background-color: #d4edda;
+  color: #155724;
+  border: 2px solid #28a745;
+}
+
+.statusAdopted {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 2px solid #dc3545;
+}
+
+.statusPending {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 2px solid #ffc107;
+}
+
+/* ========================================
+   ESTADO EN GRID
+   ======================================== */
+
+.estadoDisponible {
+  color: #28a745;
+  font-weight: 700;
+}
+
+.estadoAdoptado {
+  color: #dc3545;
+  font-weight: 700;
+}
+
+.estadoPendiente {
+  color: #ffc107;
+  font-weight: 700;
+}
+
+/* ========================================
+   CUADRO GRANDE DE ESTADO DE ADOPCIÓN
+   ======================================== */
+
+.estadoCuadro {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 4px solid;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.estadoIcono {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.estadoTexto {
+  flex: 1;
+}
+
+.estadoTitulo {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.estadoMensaje {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.cuadroDisponible {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  color: #155724;
+  border-color: #28a745;
+}
+
+.cuadroAdoptado {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  color: #721c24;
+  border-color: #dc3545;
+}
+
+.cuadroPendiente {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  color: #856404;
+  border-color: #ffc107;
+}
+
+/* ========================================
+   SECCIÓN DE ACCIONES
+   ======================================== */
+
+.petActions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 100%);
+  border-left: 1px solid #e5e7eb;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 110px;
+}
+
+.petActionsInline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f3f4f6;
+}
+
+/* ========================================
+   BOTONES DE ICONOS (Editar/Eliminar)
+   ======================================== */
+
+.iconButton {
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 0.875rem;
+  font-size: 1.25rem;
+  color: white;
+  transition: all 0.25s ease;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.iconButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.iconButton:hover::after {
+  opacity: 1;
+}
+
+.iconButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.iconButton:active {
+  transform: scale(0.95);
+}
+
+.iconButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.iconButton:disabled:hover {
+  transform: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.editButton {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.editButton:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+}
+
+.deleteButton {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.deleteButton:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* ========================================
+   BOTÓN PRINCIPAL "SOLICITAR ADOPCIÓN"
+   ======================================== */
+
+.adoptButton {
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.adoptButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.adoptButton:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.adoptButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.5);
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+}
+
+.adoptButton:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+.adoptButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.adoptButton:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.adoptButton.loading {
+  opacity: 0.7;
+  cursor: wait;
+  pointer-events: none;
+}
+
+.adoptButton.loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-left: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   BOTÓN "YA ADOPTADO"
+   ======================================== */
+
+.adoptedButton {
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 16px;
+  cursor: not-allowed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+/* ========================================
+   CONTENEDOR DE BOTONES
+   ======================================== */
+
+.petActionsRow {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f3f4f6;
+}
+
+.secondaryButton {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.secondaryButton:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   HEADER Y FILTROS DE PÁGINA
+   ======================================== */
+
+.pageHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.pageSubtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.filterContainer {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center; /* 👈 CENTRADO */
+}
+
+.filterButton {
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 2px solid #e5e7eb;
+  background-color: white;
+  color: #374151;
+}
+
+.filterButton:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+.filterButtonActive {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border-color: #7c3aed;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+.filterButtonActive:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.45);
+}
+
+.filterButtonAvailable {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-color: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+}
+
+.filterButtonAvailable:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45);
+}
+
+.filterButtonAdopted {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  color: white;
+  border-color: #4b5563;
+  box-shadow: 0 4px 12px rgba(107, 114, 128, 0.35);
+}
+
+.filterButtonAdopted:hover {
+  background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+  box-shadow: 0 6px 16px rgba(107, 114, 128, 0.45);
+}
+
+/* ========================================
+   ESTADO VACÍO
+   ======================================== */
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 1rem;
+  border: 2px solid #fbbf24;
+}
+
+.emptyStateIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.emptyStateTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 0.5rem;
+}
+
+.emptyStateText {
+  font-size: 1rem;
+  color: #b45309;
+}
+
+/* ========================================
+   RESPONSIVE - PANTALLAS GRANDES (1440px+)
+   ======================================== */
+
+@media (min-width: 1440px) {
+  .petCard {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .petImageContainer {
+    width: 320px;
+  }
+
+  .petImage,
+  .noImage {
+    min-height: 380px;
+  }
+
+  .petName {
+    font-size: 2.25rem;
+  }
+
+  .petSpecies {
+    font-size: 1.2rem;
+  }
+
+  .petDetailsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .detailValue {
+    font-size: 1.25rem;
+  }
+
+  .estadoMensaje {
+    font-size: 2rem;
+  }
+
+  .adoptButton {
+    font-size: 1.15rem;
+    padding: 1.35rem 2.25rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - DESKTOP (1025px - 1439px)
+   ======================================== */
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .petCard {
+    max-width: 100%;
+  }
+
+  .petImageContainer {
+    width: 280px;
+  }
+
+  .petImage,
+  .noImage {
+    min-height: 340px;
+  }
+
+  .petName {
+    font-size: 2rem;
+  }
+
+  .petDetailsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (768px - 1024px)
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .petCard {
+    flex-direction: column;
+  }
+
+  .petImageContainer {
+    width: 100%;
+    height: 320px;
+  }
+
+  .petImage,
+  .noImage {
+    min-height: 320px;
+  }
+
+  .petInfo {
+    padding: 2rem;
+  }
+
+  .petName {
+    font-size: 1.85rem;
+  }
+
+  .petSpecies {
+    font-size: 1.05rem;
+  }
+
+  .petDetailsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .estadoCuadro {
+    padding: 1.75rem;
+    gap: 1.25rem;
+  }
+
+  .estadoIcono {
+    font-size: 3.5rem;
+  }
+
+  .estadoMensaje {
+    font-size: 1.6rem;
+  }
+
+  .adoptButton {
+    font-size: 1.05rem;
+  }
+
+  .pageTitle {
+    font-size: 2.25rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE LARGE (481px - 767px)
+   ======================================== */
+
+@media (max-width: 767px) {
+  .petCard {
+    flex-direction: column;
+  }
+
+  .petImageContainer {
+    width: 100%;
+    height: 280px;
+  }
+
+  .petImage,
+  .noImage {
+    min-height: 280px;
+  }
+
+  .petInfo {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .petName {
+    font-size: 1.65rem;
+  }
+
+  .petSpecies {
+    font-size: 1rem;
+  }
+
+  .petDetailsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .detailLabel {
+    font-size: 0.75rem;
+  }
+
+  .detailValue {
+    font-size: 1rem;
+  }
+
+  .estadoCuadro {
+    padding: 1.5rem;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .estadoIcono {
+    font-size: 3rem;
+  }
+
+  .estadoTitulo {
+    font-size: 0.8rem;
+  }
+
+  .estadoMensaje {
+    font-size: 1.4rem;
+  }
+
+  .adoptButton {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .petDescription {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .descriptionTitle {
+    font-size: 1rem;
+  }
+
+  .descriptionText {
+    font-size: 0.95rem;
+  }
+
+  .petActionsInline {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .pageSubtitle {
+    font-size: 1rem;
+  }
+
+  .filterButton {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.25rem;
+  }
+
+  .emptyStateIcon {
+    font-size: 3rem;
+  }
+
+  .emptyStateTitle {
+    font-size: 1.35rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE SMALL (320px - 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+  .petCard {
+    border-radius: 12px;
+  }
+
+  .petImageContainer {
+    height: 240px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .petImage,
+  .noImage {
+    min-height: 240px;
+  }
+
+  .noImageIcon {
+    font-size: 3rem;
+  }
+
+  .noImageText {
+    font-size: 0.8rem;
+  }
+
+  .petInfo {
+    padding: 1.25rem;
+    gap: 0.875rem;
+  }
+
+  .petHeader {
+    padding-bottom: 0.75rem;
+  }
+
+  .petName {
+    font-size: 1.5rem;
+  }
+
+  .petSpecies {
+    font-size: 0.95rem;
+  }
+
+  .petDetailsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    padding: 1rem;
+  }
+
+  .detailLabel {
+    font-size: 0.7rem;
+  }
+
+  .detailValue {
+    font-size: 0.95rem;
+  }
+
+  .estadoCuadro {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+  }
+
+  .estadoIcono {
+    font-size: 2.5rem;
+  }
+
+  .estadoTitulo {
+    font-size: 0.75rem;
+  }
+
+  .estadoMensaje {
+    font-size: 1.2rem;
+  }
+
+  .adoptButton {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .petDescription {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .descriptionTitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .descriptionText {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .petActionsInline {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .petActions {
+    padding: 1.25rem;
+  }
+
+  .iconButton {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+  }
+
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+
+  .pageSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .filterContainer {
+    gap: 0.5rem;
+  }
+
+  .filterButton {
+    font-size: 0.8rem;
+    padding: 0.45rem 1rem;
+  }
+
+  .emptyState {
+    padding: 2rem 1.5rem;
+  }
+
+  .emptyStateIcon {
+    font-size: 2.5rem;
+  }
+
+  .emptyStateTitle {
+    font-size: 1.2rem;
+  }
+
+  .emptyStateText {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE EXTRA SMALL (< 320px)
+   ======================================== */
+
+@media (max-width: 319px) {
+  .petCard {
+    border-radius: 8px;
+  }
+
+  .petImageContainer {
+    height: 200px;
+  }
+
+  .petImage,
+  .noImage {
+    min-height: 200px;
+  }
+
+  .petInfo {
+    padding: 1rem;
+  }
+
+  .petName {
+    font-size: 1.35rem;
+  }
+
+  .petSpecies {
+    font-size: 0.875rem;
+  }
+
+  .petDetailsGrid {
+    padding: 0.875rem;
+    gap: 0.75rem;
+  }
+
+  .detailValue {
+    font-size: 0.875rem;
+  }
+
+  .estadoIcono {
+    font-size: 2rem;
+  }
+
+  .estadoMensaje {
+    font-size: 1.1rem;
+  }
+
+  .adoptButton {
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+
+  .filterButton {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.875rem;
+  }
+}

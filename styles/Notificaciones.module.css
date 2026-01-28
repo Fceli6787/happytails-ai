@@ -1,0 +1,706 @@
+/* =============================================
+   NOTIFICACIONES.MODULE.CSS - FULLY RESPONSIVE
+   Mobile → Tablet → Laptop → Desktop
+   ============================================= */
+
+.notificationsWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ===== BOTÓN DE NOTIFICACIONES (Mobile First) ===== */
+.notificationButton {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: #6b7280;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.notificationButton:active {
+  background: #f3f4f6;
+  color: #1f2937;
+  transform: scale(0.95);
+}
+
+.notificationButton svg {
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+/* ===== BADGE DE CONTADOR ===== */
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.35rem;
+  border-radius: 10px;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
+  line-height: 1;
+  pointer-events: none;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* ===== BACKDROP (solo móvil) ===== */
+.backdrop {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== DROPDOWN (Mobile First) ===== */
+.dropdown {
+  position: fixed;
+  top: 60px;
+  right: 1rem;
+  left: 1rem;
+  width: auto;
+  max-height: calc(100vh - 80px);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e5e7eb;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideDown 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== HEADER DEL DROPDOWN ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: -0.01em;
+}
+
+.markAllRead {
+  background: transparent;
+  border: none;
+  color: #8b5cf6;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.375rem 0.625rem;
+  border-radius: 6px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 32px;
+  white-space: nowrap;
+}
+
+.markAllRead:active {
+  color: #7c3aed;
+  background: #f3ebff;
+  transform: scale(0.95);
+}
+
+/* ===== CONTENIDO ===== */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100vh - 180px);
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ===== ESTADOS ===== */
+.loading,
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  color: #9ca3af;
+  text-align: center;
+  min-height: 200px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty svg {
+  opacity: 0.3;
+  margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
+}
+
+.empty p {
+  margin: 0;
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ===== LISTA DE NOTIFICACIONES ===== */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  position: relative;
+  min-height: 64px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item:active {
+  background: #f3f4f6;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item.unread {
+  background: #eff6ff;
+}
+
+.item.unread:active {
+  background: #dbeafe;
+}
+
+/* ===== ICONO ===== */
+.iconContainer {
+  flex-shrink: 0;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  font-size: 1.25rem;
+}
+
+/* ===== CONTENIDO DEL ITEM ===== */
+.itemContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.message {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.9rem;
+  color: #1f2937;
+  line-height: 1.4;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* ===== BOTÓN ELIMINAR ===== */
+.deleteButton {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.deleteButton:active {
+  background: #fee2e2;
+  color: #dc2626;
+  transform: scale(0.9);
+}
+
+/* ===== PUNTO DE NO LEÍDO ===== */
+.unreadDot {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 8px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  pointer-events: none;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+.viewAll {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #8b5cf6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.625rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.viewAll:active {
+  background: #f3ebff;
+  color: #7c3aed;
+  transform: scale(0.98);
+}
+
+/* ================================================
+   RESPONSIVE: TABLET (600px+)
+   ================================================ */
+@media (min-width: 600px) {
+  .backdrop {
+    display: none;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    left: auto;
+    width: 380px;
+    max-height: 480px;
+  }
+
+  .header {
+    padding: 1rem 1.25rem;
+  }
+
+  .title {
+    font-size: 1.05rem;
+  }
+
+  .markAllRead {
+    font-size: 0.8rem;
+  }
+
+  .item {
+    padding: 1rem 1.25rem;
+  }
+
+  .message {
+    font-size: 0.875rem;
+  }
+
+  .deleteButton {
+    opacity: 0.7;
+  }
+
+  .item:hover .deleteButton {
+    opacity: 1;
+  }
+}
+
+/* ================================================
+   RESPONSIVE: LAPTOP (768px - 1024px)
+   ================================================ */
+@media (min-width: 768px) {
+  .notificationButton {
+    padding: 0.625rem;
+    border-radius: 12px;
+  }
+
+  .notificationButton:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+    transform: none;
+  }
+
+  .dropdown {
+    width: 400px;
+    max-height: 520px;
+    border-radius: 18px;
+    box-shadow: 0 16px 56px rgba(0, 0, 0, 0.15);
+  }
+
+  .header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .markAllRead {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.875rem;
+  }
+
+  .markAllRead:hover {
+    background: #f3ebff;
+    text-decoration: none;
+  }
+
+  .content {
+    max-height: 420px;
+  }
+
+  .content::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .item {
+    padding: 1.125rem 1.5rem;
+    min-height: 72px;
+  }
+
+  .item:hover {
+    background: #f9fafb;
+  }
+
+  .item.unread:hover {
+    background: #dbeafe;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.35rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
+  }
+
+  .time {
+    font-size: 0.8rem;
+  }
+
+  .deleteButton {
+    width: 38px;
+    height: 38px;
+    font-size: 1.35rem;
+  }
+
+  .deleteButton:hover {
+    background: #fee2e2;
+    color: #dc2626;
+    transform: none;
+  }
+
+  .footer {
+    padding: 1rem 1.5rem;
+  }
+
+  .viewAll {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .viewAll:hover {
+    background: #f3ebff;
+    color: #7c3aed;
+    transform: none;
+  }
+}
+
+/* ================================================
+   RESPONSIVE: DESKTOP (1024px+)
+   ================================================ */
+@media (min-width: 1024px) {
+  .notificationButton {
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .notificationButton svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .badge {
+    top: 6px;
+    right: 6px;
+    font-size: 0.7rem;
+    min-width: 18px;
+    height: 18px;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .dropdown {
+    width: 440px;
+    max-height: 580px;
+    top: calc(100% + 0.75rem);
+  }
+
+  .header {
+    padding: 1.5rem 1.75rem;
+  }
+
+  .title {
+    font-size: 1.15rem;
+  }
+
+  .markAllRead {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .content {
+    max-height: 460px;
+  }
+
+  .item {
+    padding: 1.25rem 1.75rem;
+    min-height: 76px;
+  }
+
+  .icon {
+    width: 46px;
+    height: 46px;
+    font-size: 1.4rem;
+  }
+
+  .message {
+    font-size: 0.95rem;
+  }
+
+  .deleteButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer {
+    padding: 1.125rem 1.75rem;
+  }
+
+  .viewAll {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+}
+
+/* ================================================
+   RESPONSIVE: LARGE DESKTOP (1440px+)
+   ================================================ */
+@media (min-width: 1440px) {
+  .dropdown {
+    width: 480px;
+    max-height: 640px;
+  }
+
+  .content {
+    max-height: 520px;
+  }
+
+  .item {
+    padding: 1.5rem 2rem;
+    min-height: 80px;
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .time {
+    font-size: 0.85rem;
+  }
+}
+
+/* ================================================
+   RESPONSIVE: LANDSCAPE MODE (Mobile)
+   ================================================ */
+@media (max-height: 600px) and (orientation: landscape) and (max-width: 1023px) {
+  .dropdown {
+    max-height: calc(100vh - 60px);
+    top: 50px;
+  }
+
+  .content {
+    max-height: calc(100vh - 140px);
+  }
+
+  .item {
+    padding: 0.75rem 1rem;
+    min-height: 56px;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .message {
+    font-size: 0.85rem;
+  }
+}
+
+/* ================================================
+   DARK MODE SUPPORT - DESACTIVADO
+   Forzar siempre modo claro para consistencia
+   ================================================ */
+/* Dark mode removido intencionalmente para mantener 
+   el diseño claro en todos los dispositivos */
+
+/* ================================================
+   ACCESSIBILITY
+   ================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .dropdown,
+  .backdrop,
+  .badge {
+    animation: none;
+  }
+
+  .spinner {
+    animation: none;
+  }
+
+  .notificationButton,
+  .deleteButton,
+  .markAllRead,
+  .viewAll,
+  .item {
+    transition: none;
+  }
+}
+
+/* Focus visible para accesibilidad con teclado */
+.notificationButton:focus-visible,
+.deleteButton:focus-visible,
+.markAllRead:focus-visible,
+.viewAll:focus-visible {
+  outline: 3px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+.item:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: -2px;
+}

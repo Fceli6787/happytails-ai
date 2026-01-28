@@ -1,0 +1,123 @@
+/* Archivo: components/CreateAdminForm.module.css */
+/* (NUEVOS ESTILOS - Light Theme) */
+
+.formContainer {
+  padding: 1rem; /* Menos padding dentro del modal */
+  width: 600px;
+  max-width: 100%;
+}
+
+.formTitle {
+  color: #6a1b9a; /* Púrpura HappyTails */
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.formRow > * {
+  flex: 1;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-weight: 600;
+  color: #333; /* Texto oscuro */
+  font-size: 0.9rem;
+  margin-left: 0.25rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc; /* Borde simple */
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff; /* Fondo blanco */
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #6a1b9a;
+  box-shadow: 0 0 0 2px #e9d5ff;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Botón Primario (Guardar) - Púrpura */
+.primaryButton {
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.primaryButton:hover {
+  background-color: #4a148c;
+}
+
+/* Botón Secundario (Cancelar) - Rojo/Blanco */
+.secondaryButton {
+  background-color: #fff;
+  color: #d94026;
+  border: 1px solid #d94026;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.secondaryButton:hover {
+  background-color: #fbe9e7;
+}
+
+/* --- Mensajes de Error y Éxito --- */
+.errorMessage,
+.successMessage {
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.errorMessage {
+  color: #d8000c;
+  background-color: #ffbaba;
+  border: 1px solid #d8000c;
+}
+
+.successMessage {
+  color: #28a745;
+  background-color: #e9f7ec;
+  border: 1px solid #b8e9c1;
+}

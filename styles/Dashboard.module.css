@@ -1,0 +1,825 @@
+/* =============================================
+   DASHBOARD.MODULE.CSS - MOBILE-FIRST NATIVE
+   ============================================= */
+
+/* ===== SCOPE DE VARIABLES (local al módulo) ===== */
+/* Definimos variables en el contenedor raíz del módulo para evitar :root global */
+.container {
+  --mobile-header-height: 56px;
+  --sidebar-width-mobile: 280px;
+  --sidebar-width-desktop: 260px;
+  --touch-target-min: 44px;
+  --transition-speed: 0.3s;
+
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== SIDEBAR (Drawer estilo Material Design) ===== */
+.sidebar {
+  width: var(--sidebar-width-mobile);
+  background-color: #faf8ff;
+  border-right: 1px solid #e6d9f2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: max(1.25rem, env(safe-area-inset-top)) 1rem max(1.25rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Overlay para cerrar sidebar (móvil) */
+.sidebarOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Clase exportable para togglear visibilidad desde el layout */
+
+.sidebarOverlay.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Header del Sidebar */
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid #f0e6fa;
+}
+
+.sidebarHeader h1 {
+  font-size: 1.35rem;
+  margin: 0 0 0 0.75rem;
+  color: #4a1d6f;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.logo {
+  font-size: 1.85rem;
+  filter: drop-shadow(0 2px 4px rgba(138, 43, 226, 0.2));
+}
+
+/* Navegación */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.navLink,
+.navLinkActive {
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  color: #6b5b7a;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  min-height: var(--touch-target-min);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.navLink:active {
+  transform: scale(0.97);
+  background-color: #f3ebff;
+}
+
+.navLinkActive {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+  font-weight: 600;
+}
+
+/* Footer del Sidebar */
+.sidebarFooter {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f0e6fa;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.875rem;
+  border-radius: 12px;
+  background-color: #fff5f5;
+  color: #e85d75;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  min-height: var(--touch-target-min);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logoutButton:active {
+  transform: scale(0.97);
+  background-color: #ffe5e5;
+  border-color: #ffcccc;
+}
+
+/* ===== MAIN CONTENT ===== */
+.mainContent {
+  flex: 1;
+  background-color: #fcfaff;
+  margin-left: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: var(--mobile-header-height);
+}
+
+/* ===== MOBILE HEADER (solo visible en móvil) ===== */
+.mobileHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--mobile-header-height);
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 100;
+  gap: 0.75rem;
+}
+
+.mobileHeaderTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #4a1d6f;
+}
+
+.mobileHeaderTitle .logo {
+  font-size: 1.5rem;
+}
+
+/* Botón hamburguesa */
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.menuButton:active {
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+.menuButton span {
+  color: #4a1d6f;
+}
+
+/* ===== PAGE CONTENT ===== */
+.pageContent {
+  padding: 1rem;
+  background: #f9fafb;
+  min-height: calc(100vh - var(--mobile-header-height));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+/* Header de página (dentro del content) */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  color: #1f2937;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.pageHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ===== BOTÓN AGREGAR (FAB style) ===== */
+.addButton {
+  padding: 0.625rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  font-family: inherit;
+  min-height: var(--touch-target-min);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+
+.addButton:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 4px rgba(139, 92, 246, 0.3);
+}
+
+.addButton.cancel {
+  background: #fff5f5;
+  color: #e85d75;
+  border: 1px solid #ffcccc;
+  box-shadow: 0 2px 8px rgba(232, 93, 117, 0.15);
+}
+
+.addButton.cancel:active {
+  background: #ffe5e5;
+}
+
+/* ===== HERO BANNER ===== */
+.heroBanner {
+  background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: white;
+}
+
+.heroSubtitle {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.95;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.4;
+}
+
+/* ===== LAYOUT ===== */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.sectionCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.sectionHeader h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ===== LISTA DE MASCOTAS ===== */
+.petsContainer {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.petList {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.75rem;
+
+  /* ===========================================
+     SOLUCIÓN CSS: 
+     Esta línea crea una grilla responsive para
+     tus tarjetas de mascota.
+     =========================================== */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #9ca3af;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 2px dashed #e5e7eb;
+}
+
+.emptyState svg {
+  margin: 0 auto 1rem;
+  opacity: 0.5;
+}
+
+.emptyState p {
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.loadingState {
+  text-align: center;
+  padding: 2.5rem;
+  color: #8b5cf6;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.errorState {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid #fecaca;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ===== STATS GRID ===== */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  margin: 1.25rem 0;
+}
+
+.statCard {
+  background: #ffffff;
+  border: 1px solid #eef2ff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  min-height: 68px;
+}
+
+.statIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.statLabel {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-bottom: 0.15rem;
+}
+
+.statValue {
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+}
+
+.statHeart .statIcon { background: #f43f5e; }
+.statCalendar .statIcon { background: #3b82f6; }
+.statBell .statIcon { background: #f59e0b; }
+.statTrend .statIcon { background: #10b981; }
+
+/* ===== FORMULARIO ===== */
+.petForm {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f0e6fa;
+  box-shadow: 0 2px 8px rgba(138, 43, 226, 0.08);
+}
+
+.petForm h3 {
+  margin: 0 0 1.25rem 0;
+  color: #4a1d6f;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.formGroup {
+  margin-bottom: 1.125rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a1d6f;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 1px solid #e6d9f2;
+  border-radius: 10px;
+  font-size: 16px; /* Previene zoom en iOS */
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background-color: #faf8ff;
+  box-sizing: border-box;
+  min-height: var(--touch-target-min);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  background-color: white;
+}
+
+.formGroup textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.formActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+  min-height: var(--touch-target-min);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.submitButton:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.35);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cancelButton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  background-color: #fff5f5;
+  color: #e85d75;
+  border: 1px solid #ffcccc;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: var(--touch-target-min);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cancelButton:active {
+  background-color: #ffe5e5;
+  transform: scale(0.98);
+}
+
+/* ===== MENSAJES ===== */
+.errorMessage,
+.loadingMessage,
+.infoMessage {
+  padding: 0.875rem;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.errorMessage {
+  color: #e85d75;
+  background-color: #fff5f5;
+  border: 1px solid #ffcccc;
+}
+
+.loadingMessage {
+  color: #4a1d6f;
+  background-color: #f3ebff;
+  border: 1px solid #e6d9f2;
+}
+
+.infoMessage {
+  color: #6b5b7a;
+  background-color: #faf8ff;
+  border: 1px solid #e6d9f2;
+}
+
+/* ===== MODAL ===== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  padding-top: max(3rem, env(safe-area-inset-top));
+  z-index: 2000;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modalOverlay form,
+.modalOverlay > div {
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+/* ===== RECOMENDACIONES ===== */
+.sideCol {
+  display: grid;
+  gap: 1rem;
+}
+
+.recoList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.recoItem {
+  padding: 0.875rem;
+  border-radius: 12px;
+  background: #f5f3ff;
+  border: 1px solid #e9d5ff;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recoItem h4 {
+  margin: 0 0 0.25rem 0;
+  color: #4c1d95;
+  font-size: 0.95rem;
+}
+
+.recoItem p {
+  margin: 0;
+  color: #5b21b6;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* ===== CITAS ===== */
+.appList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.appList li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.875rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  min-height: 60px;
+}
+
+.appIcon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.appSub {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  line-height: 1.3;
+}
+
+/* ================================================
+   RESPONSIVE: TABLET & DESKTOP (min-width: 600px+)
+   ================================================ */
+
+/* Small Tablet: 600px */
+@media (min-width: 600px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .pageContent { padding: 1.5rem; }
+  .heroBanner { padding: 2rem 1.5rem; }
+  .heroTitle { font-size: 1.75rem; }
+  .heroSubtitle { font-size: 1rem; }
+  .formActions { flex-direction: row; }
+  .submitButton, .cancelButton { width: auto; flex: 1; }
+  .addButton { font-size: 0.9rem; padding: 0.625rem 1.25rem; }
+  .pageHeaderActions { gap: 1rem; }
+}
+
+/* Tablet: 768px */
+@media (min-width: 768px) {
+  .pageTitle { font-size: 1.75rem; }
+  .sectionCard { padding: 1.5rem; }
+  .petForm { padding: 2rem; }
+  .twoCol { grid-template-columns: 1fr 1fr; }
+}
+
+/* Large Tablet/Small Desktop: 1024px */
+@media (min-width: 1024px) {
+  /* Overwrite de variable SOLO dentro del módulo (no :root) */
+  .container { --sidebar-width-desktop: 260px; }
+
+  /* Sidebar siempre visible en desktop */
+  .sidebar {
+    transform: translateX(0);
+    width: var(--sidebar-width-desktop);
+    box-shadow: 2px 0 10px rgba(138, 43, 226, 0.08);
+    padding: 1.5rem;
+  }
+
+  .sidebar.open { transform: translateX(0); }
+  .sidebarOverlay { display: none !important; }
+  .mainContent { margin-left: var(--sidebar-width-desktop); padding-top: 0; }
+  .mobileHeader { display: none; }
+
+  .pageContent { padding: 2rem; min-height: 100vh; }
+  .pageTitle { font-size: 2rem; }
+  .heroBanner { padding: 2.5rem 2rem; }
+  .heroTitle { font-size: 2.25rem; }
+  .heroSubtitle { font-size: 1.1rem; }
+  .sectionCard { padding: 2rem; }
+  .statsGrid { grid-template-columns: repeat(4, 1fr); }
+  .addButton { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+  .addButton:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4); }
+  .navLink:hover { background-color: #f3ebff; color: #7c3aed; transform: translateX(4px); }
+  .logoutButton:hover { background-color: #ffe5e5; border-color: #ffcccc; transform: scale(0.98); }
+  .submitButton:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(139, 92, 246, 0.45); }
+  .cancelButton:hover { background-color: #ffe5e5; transform: scale(0.98); }
+}
+
+/* Desktop Large: 1280px+ */
+@media (min-width: 1280px) {
+  .pageContent { max-width: 1400px; margin: 0 auto; }
+}
+
+/* ===== LANDSCAPE MODE (Mobile) ===== */
+@media (max-height: 600px) and (orientation: landscape) and (max-width: 1023px) {
+  .sidebar { width: 240px; padding: 1rem; }
+  .sidebarHeader { margin-bottom: 1rem; padding-bottom: 0.75rem; }
+  .nav { gap: 0.375rem; }
+  .navLink, .navLinkActive { padding: 0.625rem 1rem; font-size: 0.875rem; }
+  .logo { font-size: 1.5rem; }
+  .sidebarHeader h1 { font-size: 1.15rem; }
+}
+
+/* ===== ACCESIBILIDAD (scoped al módulo para evitar “*” global) ===== */
+@media (prefers-reduced-motion: reduce) {
+  .container * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible para accesibilidad con teclado */
+.navLink:focus-visible,
+.addButton:focus-visible,
+.submitButton:focus-visible,
+.logoutButton:focus-visible,
+.menuButton:focus-visible {
+  outline: 3px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* ... (tus estilos existentes) ... */
+
+/* --- AÑADIDO: Estilo para bloqueo de Admin --- */
+.adminWarning {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #d94026; /* Borde rojo/naranja */
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.adminWarning h2 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-top: 0;
+}
+
+.adminWarning p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}

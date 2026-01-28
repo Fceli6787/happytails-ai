@@ -1,0 +1,104 @@
+/* Archivo: app/admin/AdminLayout.module.css */
+.adminWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f7f6;
+}
+
+.loading {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  height: 65px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.logo span {
+  font-weight: 500;
+  color: #6a1b9a; /* Color púrpura de HappyTails */
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav a:hover {
+  color: #000;
+}
+
+.nav a.active {
+  color: #6a1b9a;
+  border-bottom-color: #6a1b9a;
+}
+
+.viewSiteButton {
+  background-color: #f0e6f7;
+  color: #6a1b9a !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border: none !important;
+}
+
+.viewSiteButton:hover {
+  background-color: #e6d4f1;
+}
+
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.welcome {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.logoutButton {
+  background-color: #fbe9e7;
+  color: #d94026;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logoutButton:hover {
+  background-color: #ffddd8;
+}
+
+.mainContent {
+  padding: 2rem;
+  flex-grow: 1;
+}

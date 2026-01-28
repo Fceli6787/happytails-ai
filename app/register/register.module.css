@@ -1,0 +1,259 @@
+/* register.module.css - Mejorado y moderno */
+
+.registerBox {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 850px;
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(240, 230, 250, 0.8);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.inputGroup label {
+  font-weight: 600;
+  color: #4a1d6f;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.required {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.inputGroup input,
+.inputGroup select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e0d4f0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: #1f1f1f;
+  font-weight: 500;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  min-height: 44px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.inputGroup input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+  background-color: #ffffff;
+}
+
+.inputGroup select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a1d6f' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* Input con error */
+.inputError {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* Mensajes de error por campo */
+.fieldError {
+  color: #dc2626;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: -0.25rem;
+}
+
+.fieldError::before {
+  content: "⚠";
+  font-size: 0.9rem;
+}
+
+/* Hint para contraseña */
+.passwordHint {
+  color: #6b5b7a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: -0.25rem;
+}
+
+/* Botones */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancelButton,
+.submitButton {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: none;
+}
+
+.cancelButton {
+  background-color: #f3f4f6;
+  color: #6b5b7a;
+  border: 2px solid #e0d4f0;
+}
+
+.cancelButton:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.45);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .registerBox {
+    max-width: 95%;
+    padding: 2rem 1.5rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .registerBox {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .form {
+    gap: 1rem;
+  }
+  
+  .inputGroup input,
+  .inputGroup select {
+    padding: 0.75rem;
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .registerBox {
+    background: rgba(30, 30, 40, 0.98);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+  
+  .inputGroup label {
+    color: #f3e8ff;
+  }
+  
+  .inputGroup input,
+  .inputGroup select {
+    background-color: #2d2a3e;
+    border-color: #4c4560;
+    color: #f3f4f6;
+  }
+  
+  .inputGroup input:focus,
+  .inputGroup select:focus {
+    background-color: #353349;
+    border-color: #a78bfa;
+  }
+  
+  .passwordHint {
+    color: #d8b4fe;
+  }
+  
+  .cancelButton {
+    background-color: #3e3e5b;
+    color: #e5e7eb;
+    border-color: #5a5a7f;
+  }
+}
